@@ -1,0 +1,110 @@
+package com.cookandroid.moamoa;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
+public class MainActivity extends AppCompatActivity {
+
+    //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
+    private BottomNavigationView bottomNavigationView; //바텀 네비게이션 뷰
+    private FragmentManager fm;
+    private FragmentTransaction ft;
+
+    private Main_home m_home;
+    private Main_search m_Search;
+    private Main_favorite m_favorite;
+    private Main_notice m_notice;
+    private Main_mypage m_mypage;
+    //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.add(R.id.main_home_frame,).commit();
+
+        //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.action_bar_home:
+                        setMain(0);
+                        break;
+                    case R.id.action_bar_search:
+                        setMain(1);
+                        break;
+                    case R.id.action_bar_favorite:
+                        setMain(2);
+                        break;
+                    case R.id.action_bar_notice:
+                        setMain(3);
+                        break;
+                    case R.id.action_bar_mypage:
+                        setMain(4);
+                        break;
+                }
+
+                return true;
+            }
+        });
+
+        m_home = new Main_home();
+        m_Search = new Main_search();
+        m_favorite = new Main_favorite();
+        m_notice = new Main_notice();
+        m_mypage = new Main_mypage();
+
+        setMain(0); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
+
+        //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+    }
+
+    //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
+    // 프래그먼트 교체가 일어나는 실행문이다
+    private void setMain(int n){
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        switch (n){
+            case 0:
+                ft.replace(R.id.main_home_frame, m_home);
+                ft.commit();
+                break;
+            case 1:
+                ft.replace(R.id.main_home_frame, m_Search);
+                ft.commit();
+                break;
+            case 2:
+                ft.replace(R.id.main_home_frame, m_favorite);
+                ft.commit();
+                break;
+            case 3:
+                ft.replace(R.id.main_home_frame, m_notice);
+                ft.commit();
+                break;
+            case 4:
+                ft.replace(R.id.main_home_frame, m_mypage);
+                ft.commit();
+                break;
+        }
+    }
+    //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+
+}
