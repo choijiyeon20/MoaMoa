@@ -3,6 +3,7 @@ package com.cookandroid.moamoa;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,16 +29,13 @@ public class MainActivity extends AppCompatActivity {
     private Main_mypage m_mypage;
     //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //fragmentTransaction.add(R.id.main_home_frame,).commit();
+        //fragmentTransaction.add(R.id.main_home_frame, ).commit();
 
         //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -75,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         setMain(0); // 첫 프래그먼트 화면을 무엇으로 지정해줄 것인지 선택
 
         //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+        
     }
 
     //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
@@ -106,5 +105,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+
+
+    //네비 바가 아닌 프레그먼트 내부에서 다른 프래그먼트 전환 시 이용할 메소드 정의
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_home_frame, fragment).commit();
+    }
 
 }

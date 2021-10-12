@@ -11,13 +11,12 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="#BEBEBE"
+        android:layout_margin="16dp"
+        android:background="@drawable/round"
         app:itemIconTint="@drawable/bottom_menu_selector_color"
         app:itemTextColor="@drawable/bottom_menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu"
-        tools:layout_editor_absoluteX="0dp" />
+        app:menu="@menu/bottom_menu" />
 
     <FrameLayout
         android:id="@+id/main_home_frame"
@@ -27,7 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
