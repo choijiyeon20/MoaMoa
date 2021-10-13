@@ -20,3 +20,6 @@ public class Main_mypage extends Fragment {
         return view;
     }
 }
+
+
+
