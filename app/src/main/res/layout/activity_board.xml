@@ -6,36 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".Board">
 
-    <ImageButton
-        android:id="@+id/backHomeImageButton"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginEnd="97dp"
-        android:background="#ffffff"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
-
-    <ImageButton
-        android:id="@+id/writeImageButton"
-        android:layout_width="61dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="344dp"
-        android:layout_marginTop="16dp"
-        android:background="#ffffff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_draw_24" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="175dp"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/backHomeImageButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_dinner_dining_24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backHomeImageButton"
+            android:layout_width="60dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="97dp"
+            android:background="#ffffff"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:srcCompat="@drawable/ic_baseline_dinner_dining_24" />
+
+        <ImageButton
+            android:id="@+id/writeImageButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="16dp"
+            android:background="#ffffff"
+            app:srcCompat="@drawable/ic_baseline_draw_24" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_200"
+            android:text="탭 or 가로 스크롤뷰" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="477dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/purple_200">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="리스트뷰 추가" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

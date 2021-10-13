@@ -117,7 +117,7 @@
 
             <TextView
                 android:id="@+id/text_tag"
-                android:layout_width="236dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/round"
@@ -145,14 +145,21 @@
                 android:id="@+id/text_kategorie"
                 android:layout_width="236dp"
                 android:layout_height="45dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/round"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="카테고리"
                 android:textColor="@color/black"
-                android:padding="10dp"
-                android:layout_margin="5dp"
                 android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/spinner_tag"
+                android:layout_width="430dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown"/>
 
         </LinearLayout>
 

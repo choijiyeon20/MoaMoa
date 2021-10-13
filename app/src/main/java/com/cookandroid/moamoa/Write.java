@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 
 public class Write extends Fragment {
     private View view;
@@ -33,6 +35,13 @@ public class Write extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(Board.newlnstnce());
             }
         });
+
+        Spinner tagSpinner = (Spinner) view.findViewById(R.id.spinner_tag);
+        ArrayAdapter tagAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_array, android.R.layout.simple_spinner_item);
+        tagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tagSpinner.setAdapter(tagAdapter);
+
+
         return view;
     }
 
