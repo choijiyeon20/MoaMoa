@@ -13,13 +13,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Board extends Fragment {
     private View view;
 
+    //리스트뷰 값 설정
+    ArrayList<Actor> actors;
+    ListView listView;
+    private static CustomAdaptor customAdaptor;
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Board newlnstnce(){
         return new Board();
@@ -44,9 +54,60 @@ public class Board extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(Write.newlnstnce());
             }
         });
+        //스피너 코드
+        Spinner tagSpinner = (Spinner) view.findViewById(R.id.board_spinner_order);
+        ArrayAdapter tagAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.board_spinner_array, android.R.layout.simple_spinner_item);
+        tagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tagSpinner.setAdapter(tagAdapter);
+
+        //게시글 리스트 뷰 코드
+        actors = new ArrayList<>();
+        actors.add(new Actor("테스트", "테스트 리스트 뷰 입니다.", "2021-10-10","img"));
+        actors.add(new Actor("두번째테스트", "두번째테스트 리스트 뷰 입니다.", "2021-10-14","img"));
+
+        listView = (ListView) view.findViewById(R.id.board_list_view);
+        customAdaptor = new CustomAdaptor(getContext(),actors);
+        listView.setAdapter(customAdaptor);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
+
         return view;
     }
 
+    //리스트뷰 사용 클래스 Actor 정의
+    class Actor{
+        private String title;
+        private String contents;
+        private String date;
+        private String title_img;
+
+        public Actor(String title, String contents, String date,String title_img ){
+            this.title = title;
+            this.contents = contents;
+            this.date = date;
+            this.title_img = title_img;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public String getContents() {
+            return contents;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public String getTitle_img() {
+            return title_img;
+        }
+    }
 
     //↓↓↓↓↓ 홈 프래그먼트 띄우기(프래그먼트 저장) -> 에러 취소
 //    private Main_home m_home;
