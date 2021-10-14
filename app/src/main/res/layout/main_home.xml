@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--스크롤뷰를 바로 처음 레이아웃에 쓸 수 없음 -->
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,22 +11,15 @@
     android:layout_marginTop="0dp"
     android:background="@android:color/white"
     android:orientation="vertical">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        android:layout_gravity="center">
         <LinearLayout
             android:id="@+id/scroll_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-
-    </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
 
     <LinearLayout
@@ -269,4 +262,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
