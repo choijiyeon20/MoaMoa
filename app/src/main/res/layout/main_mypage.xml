@@ -20,7 +20,8 @@
             android:id="@+id/backBoardImageButton"
             android:layout_width="64dp"
             android:layout_height="62dp"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+            tools:ignore="DuplicateIds" />
 
         <ImageView
             android:layout_width="64dp"
@@ -87,8 +88,138 @@
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_baseline_group_24"
+                android:layout_marginStart="20dp"/>
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_baseline_create_24"
+                android:layout_marginStart="20dp"/>
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_baseline_monetization_on_24"
+                android:layout_marginStart="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="1dp">
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:text="정보"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="9.11dp" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:text="게시글"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="18dp"/>
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:text="주문내역"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="7pt"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginTop="20dp">
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_baseline_menu_book_24"
+                android:layout_marginStart="40dp"/>
+
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/ic_baseline_message_24" />
+            <ImageButton
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="18dp"
+                app:srcCompat="@drawable/ic_baseline_settings_suggest_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="1dp">
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:text="공지사항"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="9.11dp" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:text="1:1 문의"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="18dp"/>
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:text="설정"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="7pt"/>
+        </LinearLayout>
+
 
     </LinearLayout>
+
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
