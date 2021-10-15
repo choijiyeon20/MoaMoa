@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#FFD5D5D5</color>
     <color name="orange">#FFFFBB00</color>
-
-
+    <color name="yellow">#FFFAA70E</color> <!--메인 노랑색-->
+    <color name="light_gray">#FFB5B5B5</color><!-- 메인 밝은 회색 -->
 </resources>

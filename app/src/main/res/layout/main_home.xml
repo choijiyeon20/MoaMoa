@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--스크롤뷰를 바로 처음 레이아웃에 쓸 수 없음 -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
