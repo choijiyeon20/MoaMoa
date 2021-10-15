@@ -30,7 +30,8 @@ public class Main_home extends Fragment {
         view  = inflater.inflate(R.layout.main_home, container, false);
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-        /*
+
+
         Button button = (Button) view.findViewById(R.id.btnBoard);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,11 +40,11 @@ public class Main_home extends Fragment {
                 //activity.onFragmentChange(1);
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
-                startActivity(intent);
+                startActivity(intent);*/
 
 
             }
-        });   */
+        });
         return view;
     }
 

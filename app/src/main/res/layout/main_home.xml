@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:layout_gravity="center"
     android:fillViewport="true"
     android:layout_marginTop="0dp"
@@ -12,252 +13,258 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
         <LinearLayout
-            android:id="@+id/scroll_content"
+            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageButton
+                android:id="@+id/backBoardImageButton"
+                android:layout_width="64dp"
+                android:layout_height="62dp"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+                tools:ignore="DuplicateIds" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="100dp"
+                app:srcCompat="@drawable/ic_android_black_24dp" />
 
-        <ImageButton
-            android:id="@+id/backBoardImageButton"
-            android:layout_width="64dp"
-            android:layout_height="62dp"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
-            tools:ignore="DuplicateIds" />
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="110dp"
+                app:srcCompat="@drawable/ic_baseline_add_alert_24"/>
+        </LinearLayout>
 
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="100dp"
-            app:srcCompat="@drawable/ic_android_black_24dp" />
-
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="110dp"
-            app:srcCompat="@drawable/ic_baseline_add_alert_24"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="404dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="404dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="1dp"
             android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="85dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="110dp"
-            android:padding="16dp"
-            android:text="Recipe MoA MoA \n myPage"
-            android:textColor="@color/black"
-            android:textSize="19dp"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="85dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="110dp"
+                android:padding="16dp"
+                android:text="Recipe MoA MoA \n myPage"
+                android:textColor="@color/black"
+                android:textSize="19dp"
+                android:textAlignment="center"
+                />
+        </LinearLayout>
 
 
-
-    <LinearLayout
-        android:layout_width="425dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        android:background="@color/grey">
-
-        <ImageView
-            android:gravity="center"
-            android:layout_width="97dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="155dp"
-            android:background="@color/grey"
-            app:srcCompat="@drawable/ic_baseline_how_to_reg_24" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="425dp"
-            android:layout_height="160dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="300dp">
-
-            <ImageButton
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:background="@color/orange"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="45dp" />
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="40dp"
-                android:text="홈" />
-            <ImageButton
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:background="@color/orange"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="45dp"/>
-            <Button
-                android:text="순위"
-                android:layout_width="70dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="40dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginTop="1dp">
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="100dp" >
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="0dp"
-                android:text="최신글"
-                android:textSize="12.5dp"/>
-            <ImageButton
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/orange" />
-
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="0dp"
-                android:text="추천순"
-                android:textSize="12dp"/>
-            <ImageButton
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:background="@color/orange"
-                android:layout_marginStart="2dp"
-                android:layout_marginTop="5dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="1dp">
-        </LinearLayout>
-
-        <LinearLayout
-            android:gravity="top"
-            android:grvity="center"
+            android:layout_height="180dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
             android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            android:background="@color/grey">
+
+            <ImageView
+                android:gravity="center_vertical"
+                android:layout_width="97dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="15dp"
+                android:background="@color/grey"
+                app:srcCompat="@drawable/ic_baseline_how_to_reg_24" />
+            <Button
+                android:id="@+id/btnBoard"
+                android:layout_width="70dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="0dp"
+                android:text="게시판 바로가기" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginBottom="500dp"
+            android:gravity="center"
+            android:orientation="vertical"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                tools:ignore="MissingConstraints">
+                android:layout_width="400dp"
+                android:layout_height="120dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="10dp">
 
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_group_24"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@color/orange" />
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="20dp"
+                    android:text="홈" />
+
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_create_24"
-                    android:layout_marginStart="20dp"/>
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@color/orange" />
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="20dp"
+                    android:text="순위" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                tools:ignore="MissingConstraints">
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"></LinearLayout>
 
-                <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_group_24"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"/>
-                <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_create_24"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"/>
-            </LinearLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                tools:ignore="MissingConstraints">
+                android:layout_width="400dp"
+                android:layout_height="99dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginTop="0dp">
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="0dp"
+                    android:text="최신글"
+                    android:textSize="12.5dp" />
 
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_group_24"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/orange" />
+
+                <Button
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:text="추천순"
+                    android:textSize="12dp" />
+
                 <ImageButton
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/ic_baseline_create_24"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_width="110dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/orange" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:gravity="top"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="10dp"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="10dp"
+                        app:srcCompat="@drawable/ic_baseline_group_24" />
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="20dp"
+                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        app:srcCompat="@drawable/ic_baseline_group_24" />
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        app:srcCompat="@drawable/ic_baseline_group_24" />
+
+                    <ImageButton
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
