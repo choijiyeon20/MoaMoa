@@ -1,14 +1,20 @@
 package com.cookandroid.moamoa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,6 +28,7 @@ public class CustomAdaptor extends ArrayAdapter implements AdapterView.OnItemCli
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
+
 
     class ViewHolder{
         public TextView tv_title;
@@ -53,8 +60,8 @@ public class CustomAdaptor extends ArrayAdapter implements AdapterView.OnItemCli
         viewHolder.tv_title.setText(actor.getTitle());
         viewHolder.tv_contents.setText(actor.getContents());
         viewHolder.tv_date.setText(actor.getDate());
+        viewHolder.tv_titie_img.setImageResource(actor.getTitle_img());
 
-        viewHolder.tv_title.setTag(actor.getTitle());
         return convertView;
     }
 

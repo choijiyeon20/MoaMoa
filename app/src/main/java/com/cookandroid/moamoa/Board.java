@@ -10,13 +10,16 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -28,7 +31,7 @@ public class Board extends Fragment {
 
     //리스트뷰 값 설정
     ArrayList<Actor> actors;
-    ListView listView;
+    ListView listview;
     private static CustomAdaptor customAdaptor;
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Board newlnstnce(){
@@ -54,27 +57,50 @@ public class Board extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(Write.newlnstnce());
             }
         });
+
+        Button tbutton = (Button) view.findViewById(R.id.test_button);
+        tbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(Post.newlnstnce());
+            }
+        });
+
         //스피너 코드
         Spinner tagSpinner = (Spinner) view.findViewById(R.id.board_spinner_order);
         ArrayAdapter tagAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.board_spinner_array, android.R.layout.simple_spinner_item);
         tagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tagSpinner.setAdapter(tagAdapter);
 
+
         //게시글 리스트 뷰 코드
         actors = new ArrayList<>();
-        actors.add(new Actor("테스트", "테스트 리스트 뷰 입니다.", "2021-10-10","img"));
-        actors.add(new Actor("두번째테스트", "두번째테스트 리스트 뷰 입니다.", "2021-10-14","img"));
+        actors.add(new Actor("테스트", "테스트 리스트 뷰 입니다.", "2021-10-10",R.drawable.ic_baseline_dinner_dining_24));
+        actors.add(new Actor("두번째테스트", "두번째테스트 리스트 뷰 입니다.", "2021-10-14",R.drawable.ic_baseline_dinner_dining_24));
+        actors.add(new Actor("세번째테스트", "세번째테스트 리스트 뷰 입니다.", "2021-10-18",R.drawable.ic_baseline_dinner_dining_24));
+        actors.add(new Actor("네번째테스트", "네번째테스트 리스트 뷰 입니다.", "2021-10-22",R.drawable.ic_baseline_dinner_dining_24));
+        actors.add(new Actor("다섯번째테스트", "다섯번째테스트 리스트 뷰 입니다.", "2021-10-26",R.drawable.ic_baseline_dinner_dining_24));
 
-        listView = (ListView) view.findViewById(R.id.board_list_view);
+        listview = (ListView) view.findViewById(R.id.board_list_view);
         customAdaptor = new CustomAdaptor(getContext(),actors);
-        listView.setAdapter(customAdaptor);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listview.setAdapter(customAdaptor);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
 
+        //게시판 누르면 게시글로 이동
+        /*
+        FrameLayout post_click = (FrameLayout) view.findViewById(R.id.linearLayout6);
+        post_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //((MainActivity)getActivity()).replaceFragment(Post_comment_Activity.newlnstnce());
+            }
+        });
+        */
         return view;
     }
 
@@ -83,9 +109,9 @@ public class Board extends Fragment {
         private String title;
         private String contents;
         private String date;
-        private String title_img;
+        private int title_img;
 
-        public Actor(String title, String contents, String date,String title_img ){
+        public Actor(String title, String contents, String date,int title_img ){
             this.title = title;
             this.contents = contents;
             this.date = date;
@@ -104,7 +130,7 @@ public class Board extends Fragment {
             return date;
         }
 
-        public String getTitle_img() {
+        public int getTitle_img() {
             return title_img;
         }
     }
