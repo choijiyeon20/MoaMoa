@@ -11,16 +11,135 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageButton
             android:id="@+id/backBoardImageButton"
             android:layout_width="64dp"
             android:layout_height="62dp"
             app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
+        <view
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:text="2021-10-10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="맛있는 볶음밥!"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="28dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="재료 : "
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:text="대파, 소시지, 들기름, 간장, 계란, 밥, 통깨, 기호에 맞는 추가 재료"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="314dp"
+            android:padding="20dp"
+            android:text="         1. 대파와 소시지를 잘게 썬다. \n
+        2. 팬에 소시지, 간장을 넣고 볶는다. \n
+        3. 달군 팬에 들기름을 두른 다음 대파를 넣고 볶는다. \n
+        4. 달걀 2개는 잘 풀어 다른 팬에서 스크램블을 만든다. \n
+        5. 팬에 밥, 소시지, 대파, 스크램블, 요리수를 넣고 가볍게 섞듯이 볶아 그릇에 담는다.\n
+        6. 팬에 달걀 2개를 넣고 약불로 타지 않게 익히고 통깨를 뿌린 다음 5에 올린다."
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/text_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/round"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="태그"
+                android:textColor="@color/black"
+
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                android:layout_weight="2.5"
+                android:text="#계란 #달걀 #간단"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_message_24" />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

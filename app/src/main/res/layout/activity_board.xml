@@ -109,14 +109,12 @@
                 android:drawableTop="@drawable/size_board_scrollview_soup"
                 android:text="국"
                 android:textColor="@color/white" />
-
-
         </LinearLayout>
     </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginBottom="3dp"
         android:orientation="horizontal"
@@ -138,8 +136,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="418dp"
-        android:layout_height="406dp"
+        android:layout_width="411dp"
+        android:layout_height="378dp"
         android:background="@color/light_gray"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,12 +145,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ListView
+            android:id="@+id/board_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/light_gray"
-            android:dividerHeight="1dp"
-            android:id="@+id/board_list_view"
-            />
+            android:dividerHeight="1dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
