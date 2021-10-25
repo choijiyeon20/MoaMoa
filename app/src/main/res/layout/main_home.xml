@@ -35,7 +35,8 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/big" />
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/mine"
                 android:layout_marginTop="10dp"
                 android:layout_width="64dp"
                 android:layout_height="62dp"
@@ -188,7 +189,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="top"
                 android:orientation="vertical"
@@ -201,19 +202,24 @@
                     android:layout_marginEnd="0dp"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="10dp"
-                    tools:ignore="MissingConstraints">
+                    tools:ignore="MissingConstraints"
+                   >
 
-                    <ImageButton
+
+                    <ImageView
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="10dp"
-                        app:srcCompat="@drawable/ic_baseline_group_24" />
+                        android:layout_marginStart="14dp"
+                        android:src="@drawable/made"
+                        />
+
+
 
                     <ImageButton
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_marginStart="20dp"
-                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                        android:src="@drawable/menu" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -225,16 +231,16 @@
                     <ImageButton
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@drawable/ic_baseline_group_24" />
+                        app:srcCompat="@drawable/bread" />
 
                     <ImageButton
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                        app:srcCompat="@drawable/desert" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -246,16 +252,16 @@
                     <ImageButton
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="14dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@drawable/ic_baseline_group_24" />
+                        app:srcCompat="@drawable/mun" />
 
                     <ImageButton
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        app:srcCompat="@drawable/ic_baseline_create_24" />
+                        app:srcCompat="@drawable/dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

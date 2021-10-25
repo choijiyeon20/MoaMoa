@@ -319,19 +319,11 @@
         android:layout_height="45dp"
         android:layout_marginTop="540dp"
         android:layout_weight="1"
-        android:background="@drawable/round"
+        android:background="@drawable/rou"
         android:padding="10dp"
         android:text="저장하기"
         android:textColor="@color/black"
         android:textSize="18dp" />
     </LinearLayout>
-
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
