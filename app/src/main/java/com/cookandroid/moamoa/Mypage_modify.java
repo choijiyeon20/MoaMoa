@@ -1,43 +1,37 @@
 package com.cookandroid.moamoa;
 
-import android.content.Context;
-import android.content.Intent;
-import android.location.Location;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-public class Main_home extends Fragment {
+public class Mypage_modify extends Fragment {
     private View view;
 
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
-    public static Main_home newlnstnce(){
-        return new Main_home();
+    public static Mypage_modify newlnstnce(){
+        return new Mypage_modify();
     }
-
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view  = inflater.inflate(R.layout.main_home, container, false);
+        view = inflater.inflate(R.layout.my_information_modify, container, false);
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
 
-
-        ImageView button = (ImageView) view.findViewById(R.id.btnBoard);
+        ImageButton button = (ImageButton) view.findViewById(R.id.backButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Board.newlnstnce());
+                ((MainActivity)getActivity()).replaceFragment(Main_mypage.newlnstnce());
                 //activity.onFragmentChange(1);
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
