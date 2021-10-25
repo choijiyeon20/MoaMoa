@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
     public void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_home_frame, fragment).commit();
+        fragmentTransaction.replace(R.id.main_home_frame, fragment);
+        fragmentTransaction.commit();
     }
 
 
