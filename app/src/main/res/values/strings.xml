@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoaMoa</string>
+    <string name="resist_underline"> <u>계정이 없으십니까? 새 계정 만들기</u> </string>
 </resources>
