@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MoAMoA_Login extends AppCompatActivity {
 
+    public static MoAMoA_Login LoginActivity;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.moamoa_login);
@@ -21,6 +23,8 @@ public class MoAMoA_Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                LoginActivity = MoAMoA_Login.this;
                 startActivity(intent);
             }
         });

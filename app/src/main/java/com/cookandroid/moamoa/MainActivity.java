@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MoAMoA_Login loginActivity = (MoAMoA_Login)MoAMoA_Login.LoginActivity;
+        loginActivity.finish();
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         //fragmentTransaction.add(R.id.main_home_frame, ).commit();
 
