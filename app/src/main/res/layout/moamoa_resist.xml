@@ -64,20 +64,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/resist_Password"
             android:layout_width="300dp"
             android:layout_height="47dp"
             android:layout_marginBottom="50dp"
             android:ems="10"
             android:hint="비밀번호 입력"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword3"
+            app:layout_constraintBottom_toBottomOf="@+id/resist_PasswordRe"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPassword3"
+            android:id="@+id/resist_PasswordRe"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="28dp"
@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/resist_Id"
             android:layout_width="210dp"
             android:layout_height="47dp"
             android:layout_marginTop="16dp"
@@ -105,7 +105,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/resist_button"
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginBottom="196dp"
@@ -120,7 +120,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/resist_back"
         android:layout_width="47dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
