@@ -28,5 +28,12 @@ public class MoAMoA_Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        resistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MoAMoA_Resist.class);
+                startActivity(intent);
+            }
+        });
     }
 }
