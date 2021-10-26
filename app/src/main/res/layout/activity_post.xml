@@ -79,7 +79,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="314dp"
+            android:layout_height="300dp"
             android:padding="20dp"
             android:text="         1. 대파와 소시지를 잘게 썬다. \n
         2. 팬에 소시지, 간장을 넣고 볶는다. \n
@@ -95,26 +95,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:paddingLeft="5dp">
 
             <TextView
                 android:id="@+id/text_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/round"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="태그"
                 android:textColor="@color/black"
-
                 android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="2.5"
                 android:text="#계란 #달걀 #간단"
                 android:textColor="@color/black"
@@ -126,21 +125,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="100dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/commentGoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
             android:src="@drawable/ic_baseline_message_24" />
-
 
     </LinearLayout>
 
