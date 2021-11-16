@@ -149,6 +149,13 @@
             android:layout_weight="0"
             android:src="@drawable/ic_baseline_message_24" />
 
+        <ImageButton
+            android:id="@+id/reviewGoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0"
+            android:src="@drawable/ic_baseline_art_track_24" />
     </LinearLayout>
 
 

@@ -38,6 +38,13 @@ public class Post extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(Post_comment_Activity.newlnstnce());
             }
         });
+        ImageButton Rbutton = (ImageButton) view.findViewById(R.id.reviewGoButton);
+        Rbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).replaceFragment(Post_review_Activity.newlnstnce());
+            }
+        });
 
         return view;
     }

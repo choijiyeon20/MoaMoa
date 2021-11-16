@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/backPostImageButton"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="상품목록"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="35dp"
+            android:layout_marginLeft="80dp"
+            />
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/light_gray"
+        >
+    </ScrollView>
+
+</LinearLayout>
