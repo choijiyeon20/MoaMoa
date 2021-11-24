@@ -1,6 +1,7 @@
 package com.cookandroid.moamoa;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class Post_comment_Adaptor extends BaseAdapter {
 
     @Override
     public int getCount() {
+        // 아이템이 담긴 리스트 size 리턴
         return post_comment_items.size();
     }
 
@@ -47,7 +49,6 @@ public class Post_comment_Adaptor extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
-
         // item 목록 Layout을 inflate하여 convertView 참조 휙득
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -69,7 +70,6 @@ public class Post_comment_Adaptor extends BaseAdapter {
         contentText.setText(commentItem.getContentStr());
         dateText.setText(commentItem.getDateStr());
         moreView.setImageResource(commentItem.getMoreDrawable());
-
         return convertView;
     }
 
@@ -82,6 +82,8 @@ public class Post_comment_Adaptor extends BaseAdapter {
         item.setContentStr(content);
         item.setDateStr(date);
         item.setMoreDrawable(more);
-    }
 
+        // 입력받은 아이템 리스트에 추가
+        post_comment_items.add(item);
+    }
 }

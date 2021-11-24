@@ -2,6 +2,7 @@ package com.cookandroid.moamoa;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,6 @@ public class CustomAdaptor extends ArrayAdapter implements AdapterView.OnItemCli
         viewHolder.tv_contents.setText(actor.getContents());
         viewHolder.tv_date.setText(actor.getDate());
         viewHolder.tv_titie_img.setImageResource(actor.getTitle_img());
-
         return convertView;
     }
 

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookandroid.moamoa">
 
+    <!--서버 외부 접근을 위한 인터넷 사용 허가 설정-->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

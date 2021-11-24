@@ -36,6 +36,16 @@ public class Write extends Fragment {
             }
         });
 
+        //글쓰기 버튼 클릭시 데이터 이동 ( 미완성 )
+        Button wbutton = (Button) view.findViewById(R.id.writebutton);
+        wbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
+
         Spinner tagSpinner = (Spinner) view.findViewById(R.id.spinner_tag);
         ArrayAdapter tagAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.spinner_array, android.R.layout.simple_spinner_item);
         tagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

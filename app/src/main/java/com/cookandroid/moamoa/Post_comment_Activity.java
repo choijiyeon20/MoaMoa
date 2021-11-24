@@ -1,6 +1,7 @@
 package com.cookandroid.moamoa;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ public class Post_comment_Activity extends Fragment  {
     private View view;
 
     public static Post_comment_Activity newlnstnce(){
-        return new Post_comment_Activity();
+            return new Post_comment_Activity();
     }
 
     private ListView listview;
@@ -47,7 +48,6 @@ public class Post_comment_Activity extends Fragment  {
         adaptor.addItem(R.drawable.ic_baseline_person_outline_24, "자차카타", "세번째 내용", "2021-10-30",R.drawable.ic_baseline_more_horiz_24);
 
         adaptor.notifyDataSetChanged();
-
         return view;
     }
 
