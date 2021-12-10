@@ -1,36 +1,58 @@
 package com.cookandroid.moamoa;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class Main_mypage extends Fragment {
-    private View view;
+    private ViewGroup view;
     private String MoaMoaUserID;
-    private EditText mypageName;
+    private TextView mypageName;
 
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Main_mypage newlnstnce(){
         return new Main_mypage();
     }
 
+    MainActivity activity;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    //이 메소드가 호출될떄는 프래그먼트가 엑티비티위에 올라와있는거니깐 getActivity메소드로 엑티비티참조가능
+        activity = (MainActivity) getActivity();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    //이제 더이상 엑티비티 참초가안됨
+        activity = null;
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.main_mypage, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.main_mypage, container, false);
 
-        Bundle getUserId = getArguments();
-        if (getUserId != null) {
-            MoaMoaUserID = getUserId.getString("id");
-        }
+        mypageName = view.findViewById(R.id.mypage_name);
+        mypageName.setText(activity.getMoaMoaUser());
+
         //로그인 유저값을 가져오는 코드
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -87,11 +109,8 @@ public class Main_mypage extends Fragment {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(mypage_change_password.newlnstnce());
-                //activity.onFragmentChange(1);
-                /* 액티비티일 때 띄우기
-                Intent intent = new Intent(getActivity(), Board.class);
-                startActivity(intent);*/
+                Intent change = new Intent(activity, mypage_change_password.class);
+                startActivity(change);
             }
         });
 

@@ -24,11 +24,15 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fm;
     private FragmentTransaction ft;
 
-    private Main_home m_home;
-    private Main_search m_Search;
-    private Main_favorite m_favorite;
-    private Main_notice m_notice;
-    private Main_mypage m_mypage;
+    public FragmentManager getfm() {
+        return fm;
+    }
+
+    private Fragment m_home;
+    private Fragment m_Search;
+    private Fragment m_favorite;
+    private Fragment m_notice;
+    private Fragment m_mypage;
     //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
     private String MoaMoaUser;
     protected String getMoaMoaUser() {
@@ -40,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 프래그먼트 생성
+        m_home = new Main_home();
+        m_Search = new Main_search();
+        m_favorite = new Main_favorite();
+        m_notice = new Main_notice();
+        m_mypage = new Main_mypage();
 
         // 로그인 액티비티 관련 코드
         MoAMoA_Login loginActivity = (MoAMoA_Login)MoAMoA_Login.LoginActivity;

@@ -9,34 +9,49 @@ import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class mypage_change_password extends Fragment {
-    private View view;
+public class mypage_change_password extends AppCompatActivity {
 
-    //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
-    public static mypage_change_password newlnstnce(){
-        return new mypage_change_password();
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mypage_change_password);
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.mypage_change_password, container, false);
+        Button backbtn = (Button) findViewById(R.id.change_back);
 
-        //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-
-        Button Backbtn = (Button) view.findViewById(R.id.change_back);
-        Backbtn.setOnClickListener(new View.OnClickListener() {
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Main_mypage.newlnstnce());
-                //activity.onFragmentChange(1);
-                /* 액티비티일 때 띄우기
-                Intent intent = new Intent(getActivity(), Board.class);
-                startActivity(intent);*/
+                finish();
             }
         });
-        return view;
     }
+//    private View view;
+
+    //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
+//    public static mypage_change_password newlnstnce(){
+//        return new mypage_change_password();
+//    }
+
+//    @Nullable
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        view = inflater.inflate(R.layout.mypage_change_password, container, false);
+//
+//        //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//
+//        Button Backbtn = (Button) view.findViewById(R.id.change_back);
+//        Backbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ((MainActivity)getActivity()).replaceFragment(Main_mypage.newlnstnce());
+//                //activity.onFragmentChange(1);
+//                /* 액티비티일 때 띄우기
+//                Intent intent = new Intent(getActivity(), Board.class);
+//                startActivity(intent);*/
+//            }
+//        });
+//        return view;
+//    }
 }
