@@ -1,6 +1,5 @@
 package com.cookandroid.moamoa;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,23 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class change_password extends Fragment {
+public class mypage_change_password extends Fragment {
     private View view;
 
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
-    public static  change_password newlnstnce(){
-        return new  change_password();
+    public static mypage_change_password newlnstnce(){
+        return new mypage_change_password();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.change_password, container, false);
+        view = inflater.inflate(R.layout.mypage_change_password, container, false);
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
 
-        ImageButton button = (ImageButton) view.findViewById(R.id.changeImageButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button Backbtn = (Button) view.findViewById(R.id.change_back);
+        Backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ((MainActivity)getActivity()).replaceFragment(Main_mypage.newlnstnce());
@@ -36,11 +35,8 @@ public class change_password extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
         return view;
     }
-
 }

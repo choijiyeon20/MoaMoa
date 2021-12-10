@@ -95,16 +95,18 @@
             app:srcCompat="@drawable/ic_baseline_how_to_reg_24" />
 
         <TextView
+            android:id="@+id/mypage_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="홍길동 \n abcd1234@naver.com"
+            android:text="홍길동"
             android:textAlignment="center"
             android:textSize="18dp"
             android:textColor="@color/black"/>
         <TextView
+            android:id="@+id/mypage_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="ㅇㄹㅇㅎㅀ"
+            android:text="abcd1234@naver.com"
             android:textAlignment="center"
             android:textSize="20dp"
             android:textColor="@color/black"/>

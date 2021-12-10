@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 
 public class Main_mypage extends Fragment {
     private View view;
+    private String MoaMoaUserID;
+    private EditText mypageName;
 
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Main_mypage newlnstnce(){
@@ -24,6 +26,12 @@ public class Main_mypage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.main_mypage, container, false);
+
+        Bundle getUserId = getArguments();
+        if (getUserId != null) {
+            MoaMoaUserID = getUserId.getString("id");
+        }
+        //로그인 유저값을 가져오는 코드
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
 
@@ -36,8 +44,6 @@ public class Main_mypage extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
 
@@ -50,8 +56,6 @@ public class Main_mypage extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
 
@@ -64,8 +68,6 @@ public class Main_mypage extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
 
@@ -78,8 +80,6 @@ public class Main_mypage extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
 
@@ -87,13 +87,11 @@ public class Main_mypage extends Fragment {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(change_password.newlnstnce());
+                ((MainActivity)getActivity()).replaceFragment(mypage_change_password.newlnstnce());
                 //activity.onFragmentChange(1);
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
 
@@ -106,17 +104,8 @@ public class Main_mypage extends Fragment {
                 /* 액티비티일 때 띄우기
                 Intent intent = new Intent(getActivity(), Board.class);
                 startActivity(intent);*/
-
-
             }
         });
-
-
-
-
-
-
         return view;
     }
-
 }

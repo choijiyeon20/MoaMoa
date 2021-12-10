@@ -31,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private Main_mypage m_mypage;
     //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
     private String MoaMoaUser;
-    // 로그인 한 유저의 아이디 저장, 유지.
+    protected String getMoaMoaUser() {
+        return MoaMoaUser;
+    }
+    // 로그인 한 유저의 아이디 저장, 값 가져오기.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         MoAMoA_Login loginActivity = (MoAMoA_Login)MoAMoA_Login.LoginActivity;
         MoaMoaUser = loginActivity.getUserId();  // 로그인 정보 받아옴
         loginActivity.finish();
+
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         //fragmentTransaction.add(R.id.main_home_frame, ).commit();
@@ -88,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
     //↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-↓-하단 네비바 구성
     // 프래그먼트 교체가 일어나는 실행문이다
     private void setMain(int n){
+
+        Bundle UserID = new Bundle();
+        UserID.putString("id", getMoaMoaUser());
+        // 유저 정보를 받아오는 코드
+
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch (n){
@@ -108,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 4:
+                m_mypage.setArguments(UserID);
                 ft.replace(R.id.main_home_frame, m_mypage);
                 ft.commit();
                 break;
