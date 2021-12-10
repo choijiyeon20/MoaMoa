@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 // 리스트 뷰 어답터
-public class CustomAdaptor extends ArrayAdapter implements AdapterView.OnItemClickListener {
+public class Board_postList_Adaptor extends ArrayAdapter implements AdapterView.OnItemClickListener {
     private Context context;
     private List list;
 
@@ -37,7 +37,7 @@ public class CustomAdaptor extends ArrayAdapter implements AdapterView.OnItemCli
         public TextView tv_date;
         public ImageView tv_titie_img;
     }
-    public CustomAdaptor(Context context, ArrayList list){
+    public Board_postList_Adaptor(Context context, ArrayList list){
         super(context, 0, list);
         this.context = context;
         this.list= list;

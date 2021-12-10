@@ -43,6 +43,7 @@ public class MoAMoA_Login extends AppCompatActivity {
                 //task.execute("http://" + IP_ADDRESS + "/resist.php", id, password);
             }
         });
+
         resistButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

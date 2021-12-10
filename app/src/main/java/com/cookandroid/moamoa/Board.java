@@ -2,28 +2,37 @@ package com.cookandroid.moamoa;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Board extends Fragment {
@@ -32,7 +41,7 @@ public class Board extends Fragment {
     //리스트뷰 값 설정
     ArrayList<Actor> actors;
     ListView listview;
-    private static CustomAdaptor customAdaptor;
+    private static Board_postList_Adaptor boardpostListAdaptor;
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Board newlnstnce(){
         return new Board();
@@ -72,7 +81,6 @@ public class Board extends Fragment {
         tagAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tagSpinner.setAdapter(tagAdapter);
 
-
         //게시글 리스트 뷰 코드
         actors = new ArrayList<>();
         actors.add(new Actor("테스트", "테스트 리스트 뷰 입니다.", "2021-10-10",R.drawable.ic_baseline_dinner_dining_24));
@@ -82,8 +90,8 @@ public class Board extends Fragment {
         actors.add(new Actor("다섯번째테스트", "다섯번째테스트 리스트 뷰 입니다.", "2021-10-26",R.drawable.ic_baseline_dinner_dining_24));
 
         listview = (ListView) view.findViewById(R.id.board_list_view);
-        customAdaptor = new CustomAdaptor(getContext(),actors);
-        listview.setAdapter(customAdaptor);
+        boardpostListAdaptor = new Board_postList_Adaptor(getContext(),actors);
+        listview.setAdapter(boardpostListAdaptor);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -133,7 +141,11 @@ public class Board extends Fragment {
         public int getTitle_img() {
             return title_img;
         }
+
     }
+
+
+
 
     //↓↓↓↓↓ 홈 프래그먼트 띄우기(프래그먼트 저장) -> 에러 취소
 //    private Main_home m_home;
