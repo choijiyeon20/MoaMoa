@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,13 +30,17 @@ public class MainActivity extends AppCompatActivity {
     private Main_notice m_notice;
     private Main_mypage m_mypage;
     //↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-↑-하단 네비바 구성
+    private String MoaMoaUser;
+    // 로그인 한 유저의 아이디 저장, 유지.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 로그인 액티비티 관련 코드
         MoAMoA_Login loginActivity = (MoAMoA_Login)MoAMoA_Login.LoginActivity;
+        MoaMoaUser = loginActivity.getUserId();  // 로그인 정보 받아옴
         loginActivity.finish();
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

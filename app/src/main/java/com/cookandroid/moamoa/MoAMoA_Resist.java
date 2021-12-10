@@ -31,6 +31,8 @@ public class MoAMoA_Resist extends AppCompatActivity {
     private EditText mEditTextID;
     private EditText mEditTextPassword;
     private EditText mEditTextPasswordRetry;
+    private EditText mEditTextName;
+    private EditText mEditTextNickname;
     private TextView mTextViewResult;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class MoAMoA_Resist extends AppCompatActivity {
         mEditTextID = (EditText)findViewById(R.id.resist_Id);
         mEditTextPassword = (EditText)findViewById(R.id.resist_Password);
         mEditTextPasswordRetry = (EditText)findViewById(R.id.resist_PasswordRe);
+        mEditTextName = (EditText)findViewById(R.id.resist_Name);
+        mEditTextNickname = (EditText)findViewById(R.id.resist_NickName);
         mTextViewResult = (TextView)findViewById(R.id.resist_result);
 
         // ???
@@ -64,15 +68,17 @@ public class MoAMoA_Resist extends AppCompatActivity {
                 String id = mEditTextID.getText().toString();
                 String password = mEditTextPassword.getText().toString();
                 String passwordRe = mEditTextPasswordRetry.getText().toString();
+                String name = mEditTextName.getText().toString();
+                String nickname = mEditTextNickname.getText().toString();
 
                 if (password.equals(passwordRe)) {
                     InsertData task = new InsertData();
-                    task.execute("http://" + IP_ADDRESS + "/resist.php", id, password);
+                    task.execute("http://" + IP_ADDRESS + "/resist.php", id, password, name, nickname);
 
                     // 입력 후 값 비워주기
-                    mEditTextID.setText("");
-                    mEditTextPassword.setText("");
-                    mEditTextPasswordRetry.setText("");
+                    //mEditTextID.setText("");
+                    //mEditTextPassword.setText("");
+                    //mEditTextPasswordRetry.setText("");
                 } else {
                     mTextViewResult.setText("비밀번호가 다릅니다.");
                 }
@@ -111,9 +117,11 @@ public class MoAMoA_Resist extends AppCompatActivity {
 
             String id = (String)params[1];
             String password = (String)params[2];
+            String name = (String)params[3];
+            String nickname = (String)params[4];
 
             String serverURL = (String)params[0];
-            String postParameters = "id=" + id + "&password=" + password;
+            String postParameters = "id=" + id + "&password=" + password + "&name=" + name + "&nickname=" + nickname;
 
 
             try {
@@ -126,7 +134,6 @@ public class MoAMoA_Resist extends AppCompatActivity {
                 httpURLConnection.setConnectTimeout(5000);
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.connect();
-
 
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(postParameters.getBytes("UTF-8"));
