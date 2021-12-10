@@ -71,6 +71,5 @@ public class Write extends Fragment {
             }
         });
     }
-
  */
 }
