@@ -24,7 +24,7 @@ import java.net.URL;
 
 public class MoAMoA_Resist extends AppCompatActivity {
 
-    private static String IP_ADDRESS = "172.26.106.179";
+    private static String IP_ADDRESS = "10.0.2.2";
     private static String TAG = "phptest";
 
     // 안드로이드 이름, 국가, 결과 텍스트뷰
@@ -76,8 +76,6 @@ public class MoAMoA_Resist extends AppCompatActivity {
                 } else {
                     mTextViewResult.setText("비밀번호가 다릅니다.");
                 }
-
-
             }
         });
     }
