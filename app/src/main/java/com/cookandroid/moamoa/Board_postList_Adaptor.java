@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 // 리스트 뷰 어답터
+/* DB 사용으로 어답터(actor)사용 안함
 public class Board_postList_Adaptor extends ArrayAdapter implements AdapterView.OnItemClickListener {
     private Context context;
     private List list;
@@ -66,3 +67,5 @@ public class Board_postList_Adaptor extends ArrayAdapter implements AdapterView.
     }
 
 }
+
+ */

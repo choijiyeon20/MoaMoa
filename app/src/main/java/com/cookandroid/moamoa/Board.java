@@ -19,9 +19,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,18 +37,35 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Board extends Fragment {
     private View view;
 
     //리스트뷰 값 설정
+    /* DB사용으로 actor 코드사용 안함
     ArrayList<Actor> actors;
     ListView listview;
-    private static Board_postList_Adaptor boardpostListAdaptor;
+    private static Board_postList_Adaptor boardpostListAdaptor;    
+     */
+    
     //네비바 외의 프레그먼트와 연결할 때 꼭 필요한 newlnstnce() 메소드
     public static Board newlnstnce(){
         return new Board();
     }
+
+    //DB
+    private static String TAG = "php_Board";
+
+    private static final String TAG_JSON="webnautes";
+    private static final String TAG_TITLE = "title";
+    private static final String TAG_DATE = "date";
+    private static final String TAG_CONTENT = "content";
+
+
+    ArrayList<HashMap<String, String>> mArrayList;
+    ListView mlistView;
+    String mJsonString;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,6 +102,7 @@ public class Board extends Fragment {
         tagSpinner.setAdapter(tagAdapter);
 
         //게시글 리스트 뷰 코드
+        /* DB사용으로 actor 코드사용 안함
         actors = new ArrayList<>();
         actors.add(new Actor("테스트", "테스트 리스트 뷰 입니다.", "2021-10-10",R.drawable.ic_baseline_dinner_dining_24));
         actors.add(new Actor("두번째테스트", "두번째테스트 리스트 뷰 입니다.", "2021-10-14",R.drawable.ic_baseline_dinner_dining_24));
@@ -98,7 +119,9 @@ public class Board extends Fragment {
 
             }
         });
-
+         */
+        
+        
         //게시판 누르면 게시글로 이동
         /*
         FrameLayout post_click = (FrameLayout) view.findViewById(R.id.linearLayout6);
@@ -109,10 +132,19 @@ public class Board extends Fragment {
             }
         });
         */
+        //DB
+        mlistView = (ListView) view.findViewById(R.id.board_list_view);
+        mArrayList = new ArrayList<>();
+
+        GetData task = new GetData();
+        task.execute("http://10.0.2.2/post_list_getjson.php");
+        //----------------------
+
         return view;
     }
 
     //리스트뷰 사용 클래스 Actor 정의
+    /* DB사용으로 actor 코드사용 안함
     class Actor{
         private String title;
         private String contents;
@@ -143,7 +175,137 @@ public class Board extends Fragment {
         }
 
     }
+    
+     */
 
+
+    //DB GetData
+    private class GetData extends AsyncTask<String, Void, String>{
+        ProgressDialog progressDialog;
+        String errorString = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = ProgressDialog.show((MainActivity)getActivity(),
+                    "Please Wait", null, true, true);
+
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            super.onPostExecute(result);
+            progressDialog.dismiss();
+
+            Log.d(TAG, "response  - " + result);
+
+            if (result == null){
+                Toast.makeText(getActivity(), errorString,Toast.LENGTH_SHORT).show();
+            }
+            else {
+
+                mJsonString = result;
+                showResult();
+            }
+        }
+
+
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String serverURL = params[0];
+            
+            try {
+
+                URL url = new URL(serverURL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+
+                httpURLConnection.setReadTimeout(5000);
+                httpURLConnection.setConnectTimeout(5000);
+                httpURLConnection.connect();
+
+
+                int responseStatusCode = httpURLConnection.getResponseCode();
+                Log.d(TAG, "response code - " + responseStatusCode);
+
+                InputStream inputStream;
+                if(responseStatusCode == HttpURLConnection.HTTP_OK) {
+                    inputStream = httpURLConnection.getInputStream();
+                }
+                else{
+                    inputStream = httpURLConnection.getErrorStream();
+                }
+
+
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                StringBuilder sb = new StringBuilder();
+                String line;
+
+                while((line = bufferedReader.readLine()) != null){
+                    sb.append(line);
+                }
+
+
+                bufferedReader.close();
+
+
+                return sb.toString().trim();
+
+
+            } catch (Exception e) {
+
+                Log.d(TAG, "InsertData: Error ", e);
+                errorString = e.toString();
+
+                return null;
+            }
+
+        }
+    }
+
+    private void showResult(){
+        try {
+            JSONObject jsonObject = new JSONObject(mJsonString);
+            JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
+
+            for(int i=0;i<jsonArray.length();i++){
+
+                JSONObject item = jsonArray.getJSONObject(i);
+
+                String title= item.getString(TAG_TITLE);
+                String date = item.getString(TAG_DATE);
+                String content = item.getString(TAG_CONTENT);
+
+                HashMap<String,String> hashMap = new HashMap<>();
+
+                hashMap.put(TAG_TITLE, title);
+                hashMap.put(TAG_DATE, date);
+                hashMap.put(TAG_CONTENT, content);
+
+                mArrayList.add(hashMap);
+            }
+
+            ListAdapter adapter = new SimpleAdapter(
+                    (MainActivity)getActivity(), mArrayList, R.layout.board_list_item,
+                    new String[]{TAG_TITLE, TAG_DATE, TAG_CONTENT},
+                    new int[]{R.id.board_list_title, R.id.board_list_date, R.id.board_list_contents}
+            );
+
+            mlistView.setAdapter(adapter);
+
+        } catch (JSONException e) {
+
+            Log.d(TAG, "showResult : ", e);
+        }
+
+    }
 
 
 
