@@ -110,6 +110,7 @@ public class Main_mypage extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent change = new Intent(activity, mypage_change_password.class);
+                change.putExtra("id", activity.getMoaMoaUser());
                 startActivity(change);
             }
         });
