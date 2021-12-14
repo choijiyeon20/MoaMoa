@@ -1,5 +1,5 @@
 package com.cookandroid.moamoa;
-
+//DB를 사용하게 되어서 사용 안함
 public class Board_postList_dbData {
     private String title;
     private String date;
