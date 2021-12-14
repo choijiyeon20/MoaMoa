@@ -3,6 +3,7 @@ package com.cookandroid.moamoa;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,11 +80,20 @@ public class Board extends Fragment {
                 ((MainActivity)getActivity()).replaceFragment(Main_home.newlnstnce());
             }
         });
+
+        mlistView = (ListView) view.findViewById(R.id.board_list_view);
+
         ImageButton wbutton = (ImageButton) view.findViewById(R.id.writeImageButton);
         wbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Write.newlnstnce());
+                Bundle listsize = new Bundle();
+                listsize.putString("listsize", String.valueOf(mlistView.getCount()));
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Write write = new Write();
+                write.setArguments(listsize);
+                transaction.replace(R.id.main_home_frame, write);
+                transaction.commit();
             }
         });
 
@@ -132,8 +142,26 @@ public class Board extends Fragment {
             }
         });
         */
+
+
         //DB
-        mlistView = (ListView) view.findViewById(R.id.board_list_view);
+
+        mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText((MainActivity)getContext(), i + "번째입니다" + mlistView.getCount(),Toast.LENGTH_LONG).show();
+
+                Bundle listcode = new Bundle();
+                listcode.putString("listcode", String.valueOf(i));
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Post post = new Post();
+                post.setArguments(listcode);
+                transaction.replace(R.id.main_home_frame, post);
+                transaction.commit();
+            }
+        });
+
+
         mArrayList = new ArrayList<>();
 
         GetData task = new GetData();

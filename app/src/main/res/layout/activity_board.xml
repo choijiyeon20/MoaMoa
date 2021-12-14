@@ -20,28 +20,33 @@
             android:id="@+id/backHomeImageButton"
             android:layout_width="60dp"
             android:layout_height="85dp"
-            android:layout_marginEnd="97dp"
             android:background="#ffffff"
             app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
 
+        <!--좌우 정렬을 위한 view-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:srcCompat="@drawable/ic_baseline_dinner_dining_24" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/big" />
+
+        <!--좌우 정렬을 위한 view-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/writeImageButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:background="#ffffff"
             app:srcCompat="@drawable/ic_baseline_draw_24" />
-
-
     </LinearLayout>
 
     <HorizontalScrollView
@@ -50,7 +55,6 @@
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -116,18 +120,17 @@
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="302dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/test_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="게시글"/>
+            android:text="게시글" />
 
         <!--좌우 정렬을 위한 view-->
         <View
@@ -139,22 +142,23 @@
             android:id="@+id/board_spinner_order"
             android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:gravity="left"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:gravity="left" />
 
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="411dp"
-        android:layout_height="378dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:background="@color/light_gray"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
+        tools:layout_editor_absoluteY="281dp">
 
         <ListView
             android:id="@+id/board_list_view"
