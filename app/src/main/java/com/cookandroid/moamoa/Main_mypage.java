@@ -53,6 +53,8 @@ public class Main_mypage extends Fragment {
         mypageName = view.findViewById(R.id.mypage_name);
         mypageName.setText(activity.getMoaMoaUser());
 
+        MoaMoaUserID = activity.getMoaMoaUser();
+
         //로그인 유저값을 가져오는 코드
 
         //FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -110,7 +112,7 @@ public class Main_mypage extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent change = new Intent(activity, mypage_change_password.class);
-                change.putExtra("id", activity.getMoaMoaUser());
+                change.putExtra("id", MoaMoaUserID);
                 startActivity(change);
             }
         });
@@ -119,11 +121,9 @@ public class Main_mypage extends Fragment {
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(out.newlnstnce());
-                //activity.onFragmentChange(1);
-                /* 액티비티일 때 띄우기
-                Intent intent = new Intent(getActivity(), Board.class);
-                startActivity(intent);*/
+                Intent withdraw = new Intent(activity, mypage_withdraw.class);
+                withdraw.putExtra("id", MoaMoaUserID);
+                startActivity(withdraw);
             }
         });
         return view;

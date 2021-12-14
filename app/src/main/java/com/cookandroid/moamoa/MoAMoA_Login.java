@@ -66,6 +66,7 @@ public class MoAMoA_Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MoAMoA_Resist.class);
+                intent.putExtra("id", getUserId());
                 startActivity(intent);
             }
         });
