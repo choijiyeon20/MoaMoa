@@ -1,6 +1,8 @@
 package com.cookandroid.moamoa;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,14 +41,33 @@ public class Post extends Fragment {
     private TextView mTextIngredient;
     private TextView mTextDate;
     String mJsonString;
-    Bundle bundle = getArguments();
 
     private static String IP_ADDRESS = "10.0.2.2";
     private static String TAG = "phptest";
 
-
     public static Post newlnstnce(){
         return new Post();
+    }
+
+    private static final String TAG_JSON="webnautes";
+    private static final String TAG_TITLE = "title";
+    private static final String TAG_DATE = "date";
+    private static final String TAG_CONTENT = "content";
+    private static final String TAG_INGREDIENT = "ingredient";
+
+    MainActivity activity;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        //이 메소드가 호출될떄는 프래그먼트가 엑티비티위에 올라와있는거니깐 getActivity메소드로 엑티비티참조가능
+        activity = (MainActivity) getActivity();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        //이제 더이상 엑티비티 참초가안됨
+        activity = null;
     }
 
     @Nullable
@@ -59,10 +80,12 @@ public class Post extends Fragment {
         mTextIngredient = (TextView) view.findViewById(R.id.post_ingredient);
         mTextDate = (TextView) view.findViewById(R.id.post_date);
 
-        String postcode = getArguments().getString("listcode");
 
+        String postcode = getArguments().getString("listcode");
         GetData task = new GetData();
-        task.execute( "http://" + IP_ADDRESS + "/post_query.php", postcode);
+
+        task.execute(postcode);
+
 
         ImageButton Bbutton = (ImageButton) view.findViewById(R.id.backBoardImageButton);
         Bbutton.setOnClickListener(new View.OnClickListener() {
@@ -76,14 +99,18 @@ public class Post extends Fragment {
         Cbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Post_comment_Activity.newlnstnce());
+                Intent change = new Intent(activity, Post_comment_Activity.class);
+                //change.putExtra("id", MoaMoaUserID);
+                startActivity(change);
             }
         });
         ImageButton Rbutton = (ImageButton) view.findViewById(R.id.reviewGoButton);
         Rbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Post_review_Activity.newlnstnce());
+                Intent change = new Intent(activity, Post_review_Activity.class);
+                //change.putExtra("id", MoaMoaUserID);
+                startActivity(change);
             }
         });
 
@@ -92,7 +119,6 @@ public class Post extends Fragment {
 
     //DB GetData
     private class GetData extends AsyncTask<String, Void, String>{
-
         ProgressDialog progressDialog;
         String errorString = null;
 
@@ -102,34 +128,37 @@ public class Post extends Fragment {
 
             progressDialog = ProgressDialog.show((MainActivity)getActivity(),
                     "Please Wait", null, true, true);
-        }
 
+
+        }
 
         @Override
         protected void onPostExecute(String result) {
-            super.onPostExecute(result);
 
+            super.onPostExecute(result);
             progressDialog.dismiss();
-            Log.d(TAG, "response - " + result);
+
+            Log.d(TAG, "response  - " + result);
 
             if (result == null){
                 Toast.makeText(getActivity(), errorString,Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(getActivity(), result,Toast.LENGTH_SHORT).show();
+
                 mJsonString = result;
                 showResult();
             }
         }
 
 
+
         @Override
         protected String doInBackground(String... params) {
 
-            String serverURL = params[0];
-            String postParameters = "country=" + params[1];
-
-
+            String searchKeyword1 = params[0];
+            Log.d(TAG, "파람  - " + params[0]);
+            String serverURL = "http://" + IP_ADDRESS + "/post_query.php";
+            String postParameters = "post_code=" + searchKeyword1;
             try {
 
                 URL url = new URL(serverURL);
@@ -148,9 +177,8 @@ public class Post extends Fragment {
                 outputStream.flush();
                 outputStream.close();
 
-
                 int responseStatusCode = httpURLConnection.getResponseCode();
-                Log.v(TAG, "response code - " + responseStatusCode);
+                Log.d(TAG, "response code - " + responseStatusCode);
 
                 InputStream inputStream;
                 if(responseStatusCode == HttpURLConnection.HTTP_OK) {
@@ -171,7 +199,9 @@ public class Post extends Fragment {
                     sb.append(line);
                 }
 
+
                 bufferedReader.close();
+
 
                 return sb.toString().trim();
 
@@ -186,21 +216,15 @@ public class Post extends Fragment {
 
         }
     }
+
     private void showResult(){
 
-        String TAG_JSON="webnautes";
-        String TAG_TITLE = "title";
-        String TAG_CONTENT = "content";
-        String TAG_INGREDIENT ="ingredient";
-        String TAG_DATE ="date";
-
-
         try {
+            Log.d(TAG, "response  - " + mJsonString);
             JSONObject jsonObject = new JSONObject(mJsonString);
             JSONArray jsonArray = jsonObject.getJSONArray(TAG_JSON);
 
             for(int i=0;i<jsonArray.length();i++){
-
 
                 JSONObject item = jsonArray.getJSONObject(i);
 
@@ -208,17 +232,12 @@ public class Post extends Fragment {
                 String content = item.getString(TAG_CONTENT);
                 String ingredient = item.getString(TAG_INGREDIENT);
                 String date = item.getString(TAG_DATE);
-                Log.d(TAG, "받은 값 : "+title);
-                Toast.makeText(getActivity(), "받은 값 : "+title,Toast.LENGTH_SHORT).show();
 
                 mTextTitle.setText(title);
                 mTextContent.setText(content);
                 mTextIngredient.setText(ingredient);
                 mTextDate.setText(date);
-                Toast.makeText(getActivity(), "세팅된값 : "+mTextTitle,Toast.LENGTH_SHORT).show();
             }
-
-
 
         } catch (JSONException e) {
 

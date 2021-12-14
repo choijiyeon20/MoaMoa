@@ -9,28 +9,28 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class Post_review_Activity  extends Fragment {
+public class Post_review_Activity  extends AppCompatActivity {
 
-    private View view;
 
     public static Post_review_Activity newlnstnce(){
         return new Post_review_Activity();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view  = inflater.inflate(R.layout.activity_post_review, null);
+    protected void onCreate(Bundle savedInstanceState)  {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_post_review);
 
-        ImageButton Bbutton = (ImageButton) view.findViewById(R.id.backPostImageButton);
+        ImageButton Bbutton = (ImageButton) findViewById(R.id.backPostImageButton);
         Bbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Post.newlnstnce());
+                finish();
             }
         });
 
-        return view;
     }
 }

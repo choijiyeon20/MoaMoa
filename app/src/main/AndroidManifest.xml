@@ -25,6 +25,8 @@
         <activity android:name=".MoAMoA_Resist"/>
         <activity android:name=".mypage_change_password"/>
         <activity android:name=".mypage_withdraw"/>
+        <activity android:name=".Post_comment_Activity"/>
+        <activity android:name=".Post_review_Activity"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

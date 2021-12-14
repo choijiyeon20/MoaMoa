@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -62,6 +63,7 @@ public class Board extends Fragment {
     private static final String TAG_TITLE = "title";
     private static final String TAG_DATE = "date";
     private static final String TAG_CONTENT = "content";
+    private static final String TAG_POST_CODE = "post_code";
 
 
     ArrayList<HashMap<String, String>> mArrayList;
@@ -151,8 +153,14 @@ public class Board extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText((MainActivity)getContext(), i + "번째입니다" + mlistView.getCount(),Toast.LENGTH_LONG).show();
 
+                Object o = (Object) adapterView.getAdapter().getItem(i);
                 Bundle listcode = new Bundle();
-                listcode.putString("listcode", String.valueOf(i));
+
+                String res = o.toString(); 
+                String result = res.substring(res.indexOf("post_code"),res.indexOf(", title")); //post_code=코드 이름
+
+                listcode.putString("listcode",result.substring(10));
+
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 Post post = new Post();
                 post.setArguments(listcode);
@@ -310,20 +318,22 @@ public class Board extends Fragment {
                 String title= item.getString(TAG_TITLE);
                 String date = item.getString(TAG_DATE);
                 String content = item.getString(TAG_CONTENT);
+                String post_code = item.getString(TAG_POST_CODE);
 
                 HashMap<String,String> hashMap = new HashMap<>();
 
                 hashMap.put(TAG_TITLE, title);
                 hashMap.put(TAG_DATE, date);
                 hashMap.put(TAG_CONTENT, content);
+                hashMap.put(TAG_POST_CODE, post_code);
 
                 mArrayList.add(hashMap);
             }
 
             ListAdapter adapter = new SimpleAdapter(
                     (MainActivity)getActivity(), mArrayList, R.layout.board_list_item,
-                    new String[]{TAG_TITLE, TAG_DATE, TAG_CONTENT},
-                    new int[]{R.id.board_list_title, R.id.board_list_date, R.id.board_list_contents}
+                    new String[]{TAG_TITLE, TAG_DATE, TAG_CONTENT, TAG_POST_CODE},
+                    new int[]{R.id.board_list_title, R.id.board_list_date, R.id.board_list_contents, R.id.board_list_code}
             );
 
             mlistView.setAdapter(adapter);
