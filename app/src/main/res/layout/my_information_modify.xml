@@ -29,7 +29,7 @@
             android:layout_width="64dp"
             android:layout_height="62dp"
             android:layout_marginStart="100dp"
-            app:srcCompat="@drawable/ic_android_black_24dp" />
+            app:srcCompat="@drawable/big" />
     </LinearLayout>
 
     <LinearLayout

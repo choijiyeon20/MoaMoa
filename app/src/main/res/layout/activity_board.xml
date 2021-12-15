@@ -126,11 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/test_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="게시글" />
 
         <!--좌우 정렬을 위한 view-->
         <View

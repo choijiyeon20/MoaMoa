@@ -65,7 +65,6 @@ public class Board extends Fragment {
     private static final String TAG_CONTENT = "content";
     private static final String TAG_POST_CODE = "post_code";
 
-
     ArrayList<HashMap<String, String>> mArrayList;
     ListView mlistView;
     String mJsonString;
@@ -96,14 +95,6 @@ public class Board extends Fragment {
                 write.setArguments(listsize);
                 transaction.replace(R.id.main_home_frame, write);
                 transaction.commit();
-            }
-        });
-
-        Button tbutton = (Button) view.findViewById(R.id.test_button);
-        tbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity)getActivity()).replaceFragment(Post.newlnstnce());
             }
         });
 
@@ -151,7 +142,7 @@ public class Board extends Fragment {
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText((MainActivity)getContext(), i + "번째입니다" + mlistView.getCount(),Toast.LENGTH_LONG).show();
+                //Toast.makeText((MainActivity)getContext(), i + "번째입니다" + mlistView.getCount(),Toast.LENGTH_LONG).show();
 
                 Object o = (Object) adapterView.getAdapter().getItem(i);
                 Bundle listcode = new Bundle();
