@@ -76,8 +76,8 @@ public class mypage_withdraw extends AppCompatActivity {
 
     public void showMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("안내");
-        builder.setMessage("무엇을 누르시겠습니까?");
+        builder.setTitle("경고");
+        builder.setMessage("정말 탈퇴하시겠습니까?");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
 
         builder.setPositiveButton("예", new DialogInterface.OnClickListener() {

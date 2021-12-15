@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 로그인 액티비티 관련 코드
         Intent receive_id = getIntent();
-        MoaMoaUser = receive_id.getStringExtra("id");
+        MoaMoaUser = receive_id.getStringExtra("UserId");
 
         MoAMoA_Login loginActivity = (MoAMoA_Login)MoAMoA_Login.LoginActivity;
         //MoaMoaUser = loginActivity.getUserId();  // 로그인 정보 받아옴

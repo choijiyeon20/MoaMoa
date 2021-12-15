@@ -35,6 +35,7 @@ public class Main_mypage extends Fragment {
         super.onAttach(context);
     //이 메소드가 호출될떄는 프래그먼트가 엑티비티위에 올라와있는거니깐 getActivity메소드로 엑티비티참조가능
         activity = (MainActivity) getActivity();
+        MoaMoaUserID = activity.getMoaMoaUser();
     }
 
     @Override
@@ -51,9 +52,9 @@ public class Main_mypage extends Fragment {
         view = (ViewGroup) inflater.inflate(R.layout.main_mypage, container, false);
 
         mypageName = view.findViewById(R.id.mypage_name);
-        mypageName.setText(activity.getMoaMoaUser());
+        mypageName.setText(MoaMoaUserID);
 
-        MoaMoaUserID = activity.getMoaMoaUser();
+
 
         //로그인 유저값을 가져오는 코드
 
